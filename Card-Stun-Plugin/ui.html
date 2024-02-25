@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Stun Plugin</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif; /* Specify Poppins as the font family */
+    padding: 16px;
+    background-color: #363636;
+  }
+  div#button-area {
+    display: flex;
+    justify-content: space-between;
+
+  }
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #f1f1f1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding-top: 15px;
+  }
+  h3{
+    padding-top: 4.5px;
+    font-size: 13px;
+    color: #f1f1f1;
+  }
+  /* Your existing CSS styles */
+  input[type="text"]:focus,
+input[type="email"]:focus {
+    outline-color: #ef9f0c; /* Change the outline color to blue when focused */
+    outline-width: 2px; /* Set the outline width to 2 pixels */
+    outline-style: solid; /* Set the outline style to dashed */
+    outline-offset: 1px; /* Set the outline offset to 2 pixels */
+}
+
+  input[type="text"],
+  input[type="email"] {
+      font-family: 'Poppins', sans-serif; /* Apply Poppins font to input fields */
+      width: 100%;
+      padding-left: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    
+  button {
+    width: 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    background-color: #007bff; /* Green */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0960bd;
+  }
+  button#cancel {
+    background-color: #f44336; /* Red */
+  }
+  button#cancel:hover {
+    background-color: #d32f2f;
+  }
+</style>
+</head>
+<body>
+  <h1>Card Stun Plugin</h1>
+  <input id="name" type="text" placeholder="Name"/>
+  <input id="email" type="email" placeholder="Email"/>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+      <h3>Enable Dark Mode</h3>
+    </label>
+  </div>
+  <div id="button-area">
+    <button id="create"><p>Create</p></button>
+    <button id="cancel"><p>Cancel</p></button>
+  </div>
+  <!-- <div class="switch">
+    <input class="switch__toggle" type="checkbox" id="dark-mode-on" />
+    <label class="switch__label" for="dark-mode-on"><p id="dark-mode-p">Dark Mode</p></label>
+  </div> -->
+  
+  <script>
+    // ... Your script here ...
+    document.getElementById('create').onclick = () => {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const darkModeSet = document.getElementById('defaultCheck1').checked;
+  const posts = '25';
+  const following = '350';
+  const followers = '1.5k';
+  parent.postMessage({ pluginMessage: { type: 'create-card', name, email, posts, following, followers, darkModeSet  } }, '*')
+}
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "Card Stun",
+  "id": "****************",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com",
+      "https://cdn.jsdelivr.net"
+    ]
+  }
+}
